@@ -77,6 +77,7 @@ public class GameManager {
 
 
                 break;
+
             }
         }
     }
@@ -95,20 +96,23 @@ public class GameManager {
         for (int i = 0; i < 3; i++) {
             if (obstacles.get(i).isOn() == true && img_obstacle[i].getVisibility() == View.VISIBLE
                     && locations[i].getVisibility() == View.VISIBLE) {
+
                 wrong++;
+
+                obstacles.get(i).setOn(false);
+                img_obstacle[i].setVisibility(View.INVISIBLE);
+
                 // Vibrate for 500 milliseconds
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
                 } else {
                     //deprecated in API 26
                     v.vibrate(500);
-
                 }
-                obstacles.get(i).setOn(false);
-                img_obstacle[i].setVisibility(View.INVISIBLE);
                 return true;
             }
-
+            obstacles.get(i).setOn(false);
+            img_obstacle[i].setVisibility(View.INVISIBLE);
         }
         return false;
     }

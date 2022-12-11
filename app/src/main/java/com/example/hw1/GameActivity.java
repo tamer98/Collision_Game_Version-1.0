@@ -95,9 +95,9 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void atPlayerStart(){
-        game_IMG_locations[0].setImageResource(R.drawable.catie);
-        game_IMG_locations[1].setImageResource(R.drawable.catie);
-        game_IMG_locations[2].setImageResource(R.drawable.catie);
+        game_IMG_locations[0].setImageResource(R.drawable.cat);
+        game_IMG_locations[1].setImageResource(R.drawable.cat);
+        game_IMG_locations[2].setImageResource(R.drawable.cat);
 
         game_IMG_locations[0].setVisibility(View.INVISIBLE);
         game_IMG_locations[1].setVisibility(View.VISIBLE);
@@ -105,18 +105,18 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void atObstacleStart() {
-        game_IMG_obstacle[0].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[1].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[2].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[3].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[4].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[5].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[6].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[7].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[8].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[9].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[10].setImageResource(R.drawable.dog);
-        game_IMG_obstacle[11].setImageResource(R.drawable.dog);
+        game_IMG_obstacle[0].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[1].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[2].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[3].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[4].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[5].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[6].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[7].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[8].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[9].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[10].setImageResource(R.drawable.doglass);
+        game_IMG_obstacle[11].setImageResource(R.drawable.doglass);
 
         game_IMG_obstacle[0].setVisibility(View.INVISIBLE);
         game_IMG_obstacle[1].setVisibility(View.INVISIBLE);
@@ -138,6 +138,9 @@ public class GameActivity extends AppCompatActivity {
         Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
         boom=gameManager.checkAnswer(game_IMG_obstacle,game_IMG_locations, v);
 
+        if (boom==true)
+            toast();
+
         if (gameManager.isLose()) {
             finish();
 
@@ -145,8 +148,6 @@ public class GameActivity extends AppCompatActivity {
                 game_IMG_hearts[game_IMG_hearts.length-gameManager.getWrong()].setVisibility(View.INVISIBLE);
         }
 
-        if (boom==true)
-            toast();
     }
 
 
@@ -167,7 +168,7 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 runOnUiThread(() ->  gameManager.setRandomObstacle(game_IMG_obstacle));
             }
-        }, 5000, 5000);
+        }, 3000, 3000);
     }
 
     private void checkStatus() {
@@ -183,7 +184,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void toast() {
         Toast
-                .makeText(this,"BOOM ! " ,Toast.LENGTH_LONG)
+                .makeText(this,"BOOM" ,Toast.LENGTH_LONG)
                 .show();
     }
 }

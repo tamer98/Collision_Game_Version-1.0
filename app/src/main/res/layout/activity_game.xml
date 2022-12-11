@@ -14,7 +14,7 @@
         android:id="@+id/game_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/catback"
+        app:srcCompat="@drawable/b5"
         android:scaleType="fitXY"
         />
 
